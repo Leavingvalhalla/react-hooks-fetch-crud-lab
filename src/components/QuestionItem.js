@@ -11,8 +11,7 @@ function QuestionItem({ question, onDeleteClick, onFormChange }) {
   function handleDeleteClick() {
     fetch(`http://localhost:4000/questions/${id}`, {
       method: 'DELETE',
-    });
-    onDeleteClick(id);
+    }).then(onDeleteClick(id));
   }
 
   function handleChange(e) {
@@ -27,8 +26,7 @@ function QuestionItem({ question, onDeleteClick, onFormChange }) {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updatedQuestion),
-    });
-    onFormChange(updatedQuestion);
+    }).then(onFormChange(updatedQuestion));
   }
 
   return (

@@ -33,8 +33,10 @@ function QuestionForm({ onSubmit }) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newQuestion),
-    });
-    onSubmit(newQuestion);
+    })
+      .then((res) => res.json())
+      .then((data) => onSubmit(data));
+    console.log('Question added!');
   }
 
   return (

@@ -15,6 +15,7 @@ function App() {
 
   function onSubmit(newQuestion) {
     setQuestions([...questions, newQuestion]);
+    console.log(questions);
   }
 
   function onDeleteClick(questionId) {
